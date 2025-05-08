@@ -1,0 +1,207 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans text-gray-800 antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold leading-tight;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-6 py-2 rounded-md transition-all duration-300 font-medium;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(6,182,212,0.25);
+    border-radius: 100%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    pointer-events: none;
+    transition: width 0.4s ease, height 0.4s ease, opacity 0.4s ease;
+  }
+
+  .btn:active:after {
+    width: 200px;
+    height: 200px;
+    opacity: 1;
+    transition: 0s;
+  }
+
+  .btn:active {
+    transform: scale(0.95) translateY(2px);
+    box-shadow: 0 2px 8px rgba(6,182,212,0.10);
+    transition: transform 0.08s, box-shadow 0.08s;
+  }
+
+  .btn-primary {
+    @apply bg-cyan-600 text-white hover:bg-cyan-700;
+  }
+
+  .btn-outline {
+    @apply border border-gray-300 hover:bg-gray-100;
+  }
+}
+
+@layer utilities {
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+
+  .animation-delay-500 {
+    animation-delay: 500ms;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.7s ease-out forwards;
+}
+
+@keyframes gradient-move {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient-move {
+  background-size: 200% 200%;
+  animation: gradient-move 8s ease-in-out infinite;
+}
+
+.floating-shape {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(2px);
+  animation: float-shape 8s ease-in-out infinite alternate;
+}
+@keyframes float-shape {
+  0% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-30px) scale(1.08); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+/* Button hover glow */
+.btn:hover, .btn:focus {
+  box-shadow: 0 0 0 4px rgba(6,182,212,0.15), 0 2px 8px rgba(6,182,212,0.10);
+}
+
+/* Card hover lift for .shadow-lg */
+.shadow-lg:hover, .shadow-lg:focus-within {
+  transform: translateY(-6px) scale(1.025);
+  box-shadow: 0 8px 32px 0 rgba(6,182,212,0.12), 0 2px 8px rgba(0,0,0,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Animated underline for nav links */
+.animated-underline {
+  position: relative;
+  overflow: hidden;
+}
+.animated-underline:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #06b6d4, #ec4899);
+  transform: scaleX(0);
+  transition: transform 0.3s;
+  transform-origin: left;
+}
+.animated-underline:hover:after, .animated-underline:focus:after {
+  transform: scaleX(1);
+}
+
+.service-glass-card {
+  background: rgba(255,255,255,0.35);
+  backdrop-filter: blur(12px) saturate(1.2);
+  -webkit-backdrop-filter: blur(12px) saturate(1.2);
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px 0 rgba(6,182,212,0.10), 0 2px 8px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+.service-glass-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(6,182,212,0.10) 0%, rgba(236,72,153,0.10) 100%);
+  z-index: 0;
+  pointer-events: none;
+}
+.service-animated-border {
+  position: absolute;
+  inset: 0;
+  border-radius: 1.5rem;
+  padding: 2px;
+  background: linear-gradient(270deg, #06b6d4, #ec4899, #3b82f6, #06b6d4);
+  background-size: 600% 600%;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.7;
+  animation: border-gradient-move 6s ease-in-out infinite;
+}
+@keyframes border-gradient-move {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.service-glass-card > .relative {
+  position: relative;
+  z-index: 2;
+}
+.service-glass-card > .service-animated-border {
+  pointer-events: none;
+  border: 2px solid transparent;
+  mask-image: linear-gradient(#fff 0 0);
+  -webkit-mask-image: linear-gradient(#fff 0 0);
+}
+
+.faq-animated-border {
+  background: linear-gradient(270deg, #06b6d4, #ec4899, #3b82f6, #06b6d4);
+  background-size: 600% 600%;
+  animation: border-gradient-move 8s ease-in-out infinite;
+  padding: 2px;
+  border-radius: 1.5rem;
+}
