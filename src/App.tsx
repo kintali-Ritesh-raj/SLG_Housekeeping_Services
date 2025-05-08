@@ -26,7 +26,6 @@ const App: React.FC = () => {
   return (
     <>
       <NeonCursor />
-      <Analytics />
       <Helmet>
         <title>SLG Housekeeping Services | Professional Cleaning in Visakhapatnam</title>
         <meta name="description" content="SLG Housekeeping Services: Professional cleaning and housekeeping in Visakhapatnam. Residential and commercial cleaning with guaranteed satisfaction." />
