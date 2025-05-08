@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 declare global {
   interface Window {
     gtag: (...args: any[]) => void;
+    dataLayer: any[];
   }
 }
 
@@ -17,9 +18,9 @@ const Analytics: React.FC = () => {
     script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`;
     document.head.appendChild(script);
 
-    // Initialize gtag
+    // Ensure dataLayer is defined before gtag
+    window.dataLayer = window.dataLayer || [];
     window.gtag = function() {
-      // @ts-ignore
       window.dataLayer.push(arguments);
     };
     window.gtag('js', new Date());
