@@ -1,13 +1,14 @@
 import * as React from 'react';
 
 // List your gallery images here. Add/remove filenames as you add/remove images in /public/gallery/
-const galleryImages = [
-  '/gallery/work1.jpg',
-  '/gallery/work2.jpg',
-  '/gallery/work3.jpg',
-  '/gallery/work4.jpg',
-  '/gallery/work5.jpg',
-];
+// const galleryImages = [
+//   '/gallery/work1.jpg',
+//   '/gallery/work2.jpg',
+//   '/gallery/work3.jpg',
+//   '/gallery/work4.jpg',
+//   '/gallery/work5.jpg',
+// ];
+const galleryImages: string[] = [];
 
 const Gallery: React.FC = () => {
   const [selected, setSelected] = React.useState<string | null>(null);

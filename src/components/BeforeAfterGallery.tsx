@@ -1,22 +1,23 @@
 import * as React from 'react';
 
-const beforeAfterData = [
-  {
-    before: '/images/before1.jpg',
-    after: '/images/after1.jpg',
-    caption: 'Living Room Deep Cleaning',
-  },
-  {
-    before: '/images/before2.jpg',
-    after: '/images/after2.jpg',
-    caption: 'Office Carpet Restoration',
-  },
-  {
-    before: '/images/before3.jpg',
-    after: '/images/after3.jpg',
-    caption: 'Bathroom Sanitization',
-  },
-];
+// const beforeAfterData = [
+//   {
+//     before: '/images/before1.jpg',
+//     after: '/images/after1.jpg',
+//     caption: 'Living Room Deep Cleaning',
+//   },
+//   {
+//     before: '/images/before2.jpg',
+//     after: '/images/after2.jpg',
+//     caption: 'Office Carpet Restoration',
+//   },
+//   {
+//     before: '/images/before3.jpg',
+//     after: '/images/after3.jpg',
+//     caption: 'Bathroom Sanitization',
+//   },
+// ];
+const beforeAfterData: any[] = [];
 
 const BeforeAfterGallery: React.FC = () => (
   <section className="py-20 bg-gray-50" id="before-after">
